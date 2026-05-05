@@ -2,6 +2,8 @@ let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
 function render() {
   let feed = document.getElementById("feed");
+  if (!feed) return;
+
   feed.innerHTML = "";
 
   posts.forEach(p => {
