@@ -3,6 +3,8 @@
 <head>
   <title>Profile</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -20,11 +22,25 @@
   </div>
 
   <div class="main">
+
     <h2 style="color:white;">Profile</h2>
     <p style="color:white;">User: Student</p>
+
+    <h4 style="color:white;">Your Posts</h4>
+    <div id="myPosts"></div>
+
   </div>
 
 </div>
+
+<script>
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+let container = document.getElementById("myPosts");
+
+posts.forEach(p => {
+  container.innerHTML += `<div class="post">${p}</div>`;
+});
+</script>
 
 </body>
 </html>
